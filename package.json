@@ -1,0 +1,40 @@
+{
+  "name": "insomnia-plugin-aes-decryptor",
+  "version": "1.0.0",
+  "description": "Criptografa automaticamente requisições JSON e descriptografa respostas HTTP em AES-128-ECB PKCS7 Base64 para hosts configurados no Insomnia.",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild src/index.js --bundle --platform=node --target=node20 --outfile=index.js",
+    "test": "node test/test-decryptor.js"
+  },
+  "insomnia": {
+    "name": "aes-decryptor",
+    "displayName": "AES Crypto & Decryptor",
+    "description": "Criptografia de requisições e descriptografia de respostas HTTP em AES-128-ECB PKCS7 Base64 para hosts configurados.",
+    "permissions": {
+      "modules": [
+        "crypto",
+        "path"
+      ],
+      "capabilities": [
+        "models.read"
+      ]
+    }
+  },
+  "keywords": [
+    "insomnia",
+    "insomnia-plugin",
+    "aes",
+    "aes-128-ecb",
+    "decrypt",
+    "pkcs7"
+  ],
+  "author": "Felipe",
+  "license": "MIT",
+  "dependencies": {
+    "crypto-js": "^4.2.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}
